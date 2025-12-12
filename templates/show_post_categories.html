@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Showing Post On {{ categories[1] }}{% endblock %}
+{% block content %}
+<main>
+    <section>
+        <article>
+            <header>
+                <h2>Showing All Post on {{ categories[1] }}</h2>
+            </header><hr/>
+            {% for p in post %}
+            <h4><a href="{{ url_for("public.blog_detail", slug=p[2]) }}">{{ p[0] }}</a></h4>
+            <p>{{ p[1] }}, Posted by Nash</p><hr/>
+            {% endfor %}
+        </article>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}
+Personal Blog
+{% endblock %}
+{% block content %}
+<main>
+  <section>
+    <article>
+      <header>
+        <h2>Latest Post</h2>
+      </header>
+      <hr/>
+      {% for p in post %}
+        <h4><a href="{{ url_for("public.blog_detail", slug=p[1]) }}">{{ p['title'] }}</a></h4>
+        <p>{{ p['date'] }}, Posted by Nash, Posted on <a href="{{ url_for("public.show_categories_post", slug=p[5]) }}">{{ p[4] }}</a></p>
+        <hr/> 
+      {% endfor %}
+    </article>
+    
+    {% if page > 1 %}
+      <a href="{{ url_for("public.index", integer=(page - 1)) }}" class="button" style="text-align: left;">Newest</a>
+    {% endif %}
+
+    {% if page < total_pages %}
+      <a href="{{ url_for("public.index", integer=(page + 1)) }}" class="button" style="text-align: right;">Older</a>
+    {% endif %}
+    <article>
+      <header>
+        <h2>Category</h2>
+      </header>
+      <ul>
+        {% for cat in cat_name %}
+        <li><a href="{{ url_for("public.show_categories_post", slug=cat[2]) }}">{{ cat[1] }}</a> ({{ cat[3] }})</li>
+        {% endfor %}
+      </ul>
+    </article>
+  </section>
+</main>
+
+{% endblock %}

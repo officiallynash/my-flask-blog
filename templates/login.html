@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Login!{% endblock %}
+{% block content %}
+<main>
+  <section>
+     <form method="post" action="{{ url_for("public.login") }}">
+        <h2>Login to Admin Area</h2>
+        {% with messages = get_flashed_messages() %}
+           {% if messages %}
+              {% for message in messages %}
+                 <p class="notice">{{ message }}</p>
+              {% endfor %}
+            {% endif %}
+        {% endwith %}
+        <label>Username :</label>
+        <input type="text" name="username" size="20" placeholder="Username"/>
+        <label>Password :</label>
+        <input type="password" name="password" size="20" placeholder="Password"/>
+        <input type="submit" value="Login"/></p>
+      </form>
+  </section>
+</main>
+{% endblock %}

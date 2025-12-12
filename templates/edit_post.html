@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Edit Post{% endblock %}
+{% block content %}
+<main>
+    <section>
+        <article>
+        <header>
+            <h2>Edit Post Where ID {{ post[0] }}</h2>
+        </header>
+
+        <form action="{{ url_for("admin.edit_post", id=post[0]) }}" method="POST">
+            <label>Title </label> <input type="text" name="title" value="{{ post[1] }}"/><br/>
+            <label>Category </label>
+            <select name="cat_id">
+                {% for category in categories %}
+                    <option value="{{ category[0] }}">{{ category[1] }}</option>
+                {% endfor %}
+            </select>
+            <label>Content </label><textarea name="content" rows="6">{{ post[4] }}</textarea><br/>
+            <input type="submit" value="Edit"/>
+        </form>
+        </article>
+    </section>
+</main>
+{% endblock %}
+
+

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}{{ post[0] }}{% endblock %}
+{% block content %}
+   <main>
+    <section>
+      <article>
+        <header>
+          <h4>{{ post[0] }}</h4>
+          <p>{{ post[1] }}, Posted by Nash, Posted on <a href="{{ url_for("public.show_categories_post", slug=post[5]) }}">{{ post[4] }}</a></p>
+        </header>
+        <hr/>
+        <p>{{ post[2] | safe }}</p>
+      </article>
+    </section>
+   </main>
+
+{% endblock %}

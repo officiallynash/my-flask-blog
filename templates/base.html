@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" href="/static/simple.css"/>
+
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <header>
+        {% if 'username' in session %}
+           <nav>
+            <a href="{{ url_for("public.index") }}">Home</a>
+            <a href="{{ url_for("admin.admin") }}">Admin Area</a>
+            <a href="{{ url_for("admin.logout") }}">Logout</a>
+           </nav>
+        {% else %}
+           <nav>
+            <a href="{{ url_for("public.index") }}">Home</a>
+            <a href="{{ url_for("public.login") }}">Login</a>
+           </nav>
+        {% endif %}
+        <h1>Nash Personal Blog</h1>
+    </header>
+    {% block content %} {% endblock %}
+    <footer>
+        Created by <b>Nash</b><br/>
+        Template by SimpleCSS
+    </footer>
+</body>
+</html>
+
+

@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Area Admin{% endblock %}
+{% block content %}
+<main>
+<section>
+<article>
+    <header>
+        <h2>Admin Area</h2>
+    </header>
+    <ul>
+        <li><a href="{{ url_for("admin.write_blog") }}">Write or Edit a Post!</a></li>
+        <li><a href="{{ url_for("admin.categories") }}">Add or Edit Category</a></li>
+    </ul>
+</article>
+</section>         
+</main>
+{% endblock %}   
