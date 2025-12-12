@@ -24,8 +24,12 @@ python -m venv venv
 source venv/bin/activate   # Linux / Mac
 venv\Scripts\activate      # Windows
 
-Install dependencies:
-pip install -r requirements.txt
+Requires library:
+**Python**
+**Flask**
+**Sqlite3**
 
 first run **python install.py** for database, user configuration.
 And run app by typing **python main.py**, visit in your browser **http://127.0.0.1:5000**
+
+
